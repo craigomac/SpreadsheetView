@@ -204,7 +204,7 @@ extension SpreadsheetView {
                 }
             }
             return layouts
-        }()
+        }(())
 
         var columnWidthCache = [CGFloat]()
         var frozenColumnWidth: CGFloat = 0

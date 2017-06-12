@@ -33,11 +33,7 @@ final class ReuseQueue<Reusable> where Reusable: NSObject {
 final class ReusableCollection<Reusable>: Sequence where Reusable: NSObject {
     var pairs = [Address: Reusable]()
     var addresses = Set<Address>()
-
-    var objects: LazyMapCollection<[Address: Reusable], Reusable> {
-        return pairs.values
-    }
-
+    
     func contains(_ member: Address) -> Bool {
         return addresses.contains(member)
     }
@@ -59,8 +55,8 @@ final class ReusableCollection<Reusable>: Sequence where Reusable: NSObject {
             pairs[key] = newValue
         }
     }
-
-    func makeIterator() -> LazyMapIterator<DictionaryIterator<Address, Reusable>, Reusable> {
-        return pairs.values.makeIterator()
+    
+    func makeIterator() -> IndexingIterator<Dictionary<Address, Reusable>.Values> {
+     return pairs.values.makeIterator()
     }
 }

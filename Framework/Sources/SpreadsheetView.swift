@@ -690,25 +690,25 @@ public class SpreadsheetView: UIView {
     public func cellForItem(at indexPath: IndexPath) -> Cell? {
         if let cell = tableView.visibleCells.pairs
             .filter({ $0.key.row == indexPath.row && $0.key.column == indexPath.column })
-            .map({ return $1 })
+            .map({ return $0.1 })
             .first {
             return cell
         }
         if let cell = rowHeaderView.visibleCells.pairs
             .filter({ $0.key.row == indexPath.row && $0.key.column == indexPath.column })
-            .map({ return $1 })
+            .map({ return $0.1 })
             .first {
             return cell
         }
         if let cell = columnHeaderView.visibleCells.pairs
             .filter({ $0.key.row == indexPath.row && $0.key.column == indexPath.column })
-            .map({ return $1 })
+            .map({ return $0.1 })
             .first {
             return cell
         }
         if let cell = cornerView.visibleCells.pairs
             .filter({ $0.key.row == indexPath.row && $0.key.column == indexPath.column })
-            .map({ return $1 })
+            .map({ return $0.1 })
             .first {
             return cell
         }
@@ -720,22 +720,22 @@ public class SpreadsheetView: UIView {
         cells.append(contentsOf:
             tableView.visibleCells.pairs
                 .filter { $0.key.row == indexPath.row && $0.key.column == indexPath.column }
-                .map { return $1 }
+                .map { return $0.1 }
         )
         cells.append(contentsOf:
             rowHeaderView.visibleCells.pairs
                 .filter { $0.key.row == indexPath.row && $0.key.column == indexPath.column }
-                .map { return $1 }
+                .map { return $0.1 }
         )
         cells.append(contentsOf:
             columnHeaderView.visibleCells.pairs
                 .filter { $0.key.row == indexPath.row && $0.key.column == indexPath.column }
-                .map { return $1 }
+                .map { return $0.1 }
         )
         cells.append(contentsOf:
             cornerView.visibleCells.pairs
                 .filter { $0.key.row == indexPath.row && $0.key.column == indexPath.column }
-                .map { return $1 }
+                .map { return $0.1 }
         )
         return cells
     }
